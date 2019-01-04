@@ -81,9 +81,8 @@ Here are some real world examples:
 ```
 Available targets:
 
-  aws/install                         Install aws cli bundle
-  aws/shell                           Start a aws-vault shell with access to aws api
   bash/lint                           Lint all bash scripts
+
   chamber/install                     Install chamber
   chamber/shell                       Start a chamber shell with secrets exported to the environment
   codefresh/export                    DEPRECATED!!! Export codefresh additional envvars
@@ -120,28 +119,15 @@ Available targets:
   docker/image/push                   Push $TARGET_DOCKER_REGISTRY/$IMAGE_NAME:$TARGET_VERSION
   docker/login                        Login into docker hub
   docs/copyright-add                  Add copyright headers to source code
-  geodesic/deploy                     Run a Jenkins Job to Deploy $(APP) with $(CANONICAL_TAG)
   git/aliases-update                  Update git aliases
   git/export                          Export git vars
+  git/submodules-update               Update submodules
   github/download-private-release     Download release from github
   github/download-public-release      Download release from github
   github/latest-release               Fetch the latest release tag from the GitHub API
   github/push-artifacts               Push all release artifacts to GitHub (Required: `GITHUB_TOKEN`)
   gitleaks/install                    Install gitleaks
   gitleaks/scan                       Scan current repository
-  git/submodules-update               Update submodules
-  go/build                            Build binary
-  go/build-all                        Build binary for all platforms
-  go/clean                            Clean compiled binary
-  go/clean-all                        Clean compiled binary and dependency
-  go/deps                             Install dependencies
-  go/deps-build                       Install dependencies for build
-  go/deps-dev                         Install development dependencies
-  go/fmt                              Format code according to Golang convention
-  go/install                          Install cli
-  go/lint                             Lint code
-  go/test                             Run tests
-  go/vet                              Vet code
   helm/chart/build                    Build chart $CHART_NAME from $SOURCE_CHART_TPL
   helm/chart/build-all                Alias for helm/chart/build/all. Depricated.
   helm/chart/build/all                Build chart $CHART_NAME from $SOURCE_CHART_TPL for all available $SEMVERSIONS
@@ -158,7 +144,6 @@ Available targets:
   helm/delete/failed                  Delete all failed releases in a `NAMESPACE` subject to `FILTER`
   helm/delete/namespace               Delete all releases in a `NAMEPSACE` as well as the namespace
   helm/delete/namespace/empty         Delete `NAMESPACE` if there are no releases in it
-  helmfile/install                    Install helmfile
   helm/install                        Install helm
   helm/repo/add                       Add $REPO_NAME from $REPO_ENDPOINT
   helm/repo/add-current               Add helm remote dev repos
@@ -171,35 +156,18 @@ Available targets:
   helm/repo/update                    Update repo info
   helm/serve/index                    Build index for serve helm charts
   helm/toolbox/upsert                 Install or upgrade helm tiller 
+  helmfile/install                    Install helmfile
   help                                Help screen
   help/all                            Display help for all targets
   help/short                          This help short screen
-  jenkins/run-job-with-tag            Run a Jenkins Job with $(TAG)
   make/lint                           Lint all makefiles
-  packages/delete                     Delete packages
-  packages/install/%                  Install package (e.g. helm, helmfile, kubectl)
-  packages/install                    Install packages 
-  packages/reinstall/%                Reinstall package (e.g. helm, helmfile, kubectl)
-  packages/reinstall                  Reinstall packages
-  packages/uninstall/%                Uninstall package (e.g. helm, helmfile, kubectl)
+  mono/build                          Build monorepo with `lerna`
+  mono/deps                           Install npm external dependencies for building monorepo
+  mono/init                           Bootstrap monorepo with `lerna`
   readme                              Alias for readme/build
   readme/build                        Create README.md by building it from README.yaml
   readme/init                         Create basic minimalistic .README.md template file
   readme/lint                         Verify the `README.md` is up to date
-  semver/export                       Export semver vars
-  slack/notify                        Send webhook notification to slack
-  slack/notify/build                  Send notification to slack using "build" template
-  slack/notify/deploy                 Send notification to slack using "deploy" template
-  template/build                      Create $OUT file by building it from $IN template file
-  template/deps                       Install dependencies
-  terraform/get-modules               Ensure all modules can be fetched
-  terraform/get-plugins               Ensure all plugins can be fetched
-  terraform/install                   Install terraform
-  terraform/lint                      Lint check Terraform
-  terraform/upgrade-modules           Upgrade all terraform module sources
-  terraform/validate                  Basic terraform sanity check
-  travis/docker-login                 Login into docker hub
-  travis/docker-tag-and-push          Tag & Push according Travis environment variables
 
 ```
 
