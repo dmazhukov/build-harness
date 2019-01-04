@@ -58,6 +58,3 @@ ifndef TRANSLATE_COLON_NOTATION
 %:
 	@$(SELF) $(subst :,/,$@) TRANSLATE_COLON_NOTATION=false
 endif
-
-
-
