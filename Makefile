@@ -56,5 +56,5 @@ bash/fmt/check:
 
 ifndef TRANSLATE_COLON_NOTATION
 %:
-	@$(SELF) $(subst :,/,$@) TRANSLATE_COLON_NOTATION=false
+	@$(SELF) -s $(subst :,/,$@) TRANSLATE_COLON_NOTATION=false
 endif
