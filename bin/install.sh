@@ -10,4 +10,4 @@ if [ "$BUILD_HARNESS_PROJECT" ] && [ -d "$BUILD_HARNESS_PROJECT" ]; then
 fi
 
 echo "Cloning ${GITHUB_REPO}#${BUILD_HARNESS_BRANCH}..."
-git clone -b $BUILD_HARNESS_BRANCH $GITHUB_REPO
+git clone -b $BUILD_HARNESS_BRANCH $GITHUB_REPO --depth=1
