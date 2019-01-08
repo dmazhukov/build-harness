@@ -13,6 +13,10 @@ green = $(shell echo -e '\x1b[32;01m$1\x1b[0m')
 yellow = $(shell echo -e '\x1b[33;01m$1\x1b[0m')
 red = $(shell echo -e '\x1b[33;31m$1\x1b[0m')
 
+GREEN = $(BUILD_HARNESS_PATH)/bin/echo_green.sh
+RED = $(BUILD_HARNESS_PATH)/bin/echo_red.sh
+YELLOW = $(BUILD_HARNESS_PATH)/bin/echo_yellow.sh
+
 
 # Ensures that a variable is defined
 define assert-set
