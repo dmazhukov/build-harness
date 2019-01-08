@@ -1,7 +1,7 @@
 export SHELL = /bin/bash
-export BUILD_HARNESS_ORG ?= GameBench
+export BUILD_HARNESS_ORG ?= dmazhukov
 export BUILD_HARNESS_PROJECT ?= build-harness
-export BUILD_HARNESS_BRANCH ?= master
+export BUILD_HARNESS_BRANCH ?= monorepo
 export BUILD_HARNESS_PATH ?= $(shell until [ -d "$(BUILD_HARNESS_PROJECT)" ] || [ "`pwd`" == '/' ]; do cd ..; done; pwd)/$(BUILD_HARNESS_PROJECT)
 -include $(BUILD_HARNESS_PATH)/Makefile
 
