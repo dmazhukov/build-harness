@@ -2,7 +2,7 @@ export LERNA_BOOTSTRAP_FLAGS ?= --no-optional --ci
 export LERNA_BUILD_FLAGS ?=
 export LERNA_TEST_FLAGS ?=
 export LERNA_EXEC_FLAGS ?=
-export SERVICES ?= $(shell lerna ls -lpa --toposort --json|jq '.[]|select(.location|contains("service")).name' --raw-output)
+export SERVICES ?= $(shell [[ 'command -v lerna' ]] && lerna ls -lpa --toposort --json|jq '.[]|select(.location|contains("service")).name' --raw-output)
 
 ## Alias for mono/all
 mono: mono/all
@@ -22,8 +22,8 @@ mono/test:
 	@lerna run test $(LERNA_TEST_FLAGS)
 ## Push monorepo images
 mono/push:
-	@for service in $(shell ) ; do \
-		echo ">>>> Pushing $${service} image"; \
+	@for service in $(SERVICES) ; do \
+		echo ">>>> Pus hing $${service} image"; \
 		$(MAKE) docker/image/push SERVICE=$$service; \
 	done
 ## Clean monorepo

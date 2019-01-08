@@ -19,6 +19,7 @@ include $(BUILD_HARNESS_PATH)/Makefile.*
 # include $(BUILD_HARNESS_PATH)/modules/*/Makefile*
 include $(BUILD_HARNESS_PATH)/modules/*/bootstrap.Makefile*
 include $(BUILD_HARNESS_PATH)/modules/bash/Makefile*
+include $(BUILD_HARNESS_PATH)/modules/completion/Makefile*
 include $(BUILD_HARNESS_PATH)/modules/compose/Makefile*
 include $(BUILD_HARNESS_PATH)/modules/docker/Makefile*
 # include $(BUILD_HARNESS_PATH)/modules/docs/Makefile*
@@ -29,30 +30,10 @@ include $(BUILD_HARNESS_PATH)/modules/gitleaks/Makefile*
 # include $(BUILD_HARNESS_PATH)/modules/helmfile/Makefile*
 include $(BUILD_HARNESS_PATH)/modules/make/Makefile*
 include $(BUILD_HARNESS_PATH)/modules/mono/Makefile*
+include $(BUILD_HARNESS_PATH)/modules/packages/Makefile*
 include $(BUILD_HARNESS_PATH)/modules/readme/Makefile*
-
-all: init deps build install run
-
-deps:
-	@make mono/deps
-
-build:
-	@make mono/init
-	@make mono/build
-
-install:
-	@echo "Not implemented"
-	@exit(0)
-
-run:
-	@echo "Not implemented"
-	@exit(0)
-
-bash/fmt:
-	shfmt -l -w $(PWD)
-
-bash/fmt/check:
-	shfmt -d $(PWD)/rootfs	
+include $(BUILD_HARNESS_PATH)/modules/semver/Makefile*
+include $(BUILD_HARNESS_PATH)/modules/template/Makefile*
 
 ifndef TRANSLATE_COLON_NOTATION
 %:
