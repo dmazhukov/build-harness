@@ -1,4 +1,4 @@
-export LERNA_BOOTSTRAP_FLAGS ?= --no-optional --ci
+export LERNA_BOOTSTRAP_FLAGS ?= --ci --  --no-optional
 export LERNA_BUILD_FLAGS ?=
 export LERNA_TEST_FLAGS ?=
 export LERNA_EXEC_FLAGS ?=
@@ -23,7 +23,7 @@ mono/test:
 ## Push monorepo images
 mono/push:
 	@for service in $(SERVICES) ; do \
-		echo ">>>> Pus hing $${service} image"; \
+		$(GREEN) ">>>> Pushing $${service} image";  \
 		$(MAKE) docker/image/push SERVICE=$$service; \
 	done
 ## Clean monorepo
