@@ -26,8 +26,8 @@ include $(BUILD_HARNESS_PATH)/modules/docker/Makefile*
 include $(BUILD_HARNESS_PATH)/modules/git/Makefile*
 include $(BUILD_HARNESS_PATH)/modules/github/Makefile*
 include $(BUILD_HARNESS_PATH)/modules/gitleaks/Makefile*
-# include $(BUILD_HARNESS_PATH)/modules/helm/Makefile*
-# include $(BUILD_HARNESS_PATH)/modules/helmfile/Makefile*
+include $(BUILD_HARNESS_PATH)/modules/helm/Makefile*
+include $(BUILD_HARNESS_PATH)/modules/helmfile/Makefile*
 include $(BUILD_HARNESS_PATH)/modules/make/Makefile*
 include $(BUILD_HARNESS_PATH)/modules/mono/Makefile*
 include $(BUILD_HARNESS_PATH)/modules/packages/Makefile*
