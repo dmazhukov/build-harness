@@ -4,10 +4,8 @@ export LERNA_TEST_FLAGS ?=
 export LERNA_EXEC_FLAGS ?=
 export SERVICES ?= $(shell [[ 'command -v lerna' ]] && lerna ls -lpa --toposort --json|jq '.[]|select(.location|contains("service")).name' --raw-output)
 
-## Alias for mono/all
-mono: mono/all
 ## Use it after fresh `git clone` to build and push images
-mono/all: init deps build push
+mono/ci: mono/deps mono/build/ci mono/push
 ## Install npm external dependencies for building monorepo
 mono/deps:
 	@lerna bootstrap $(LERNA_BOOTSTRAP_FLAGS)
@@ -17,7 +15,7 @@ mono/init:
 ## Build monorepo with lerna
 mono/build:
 	@lerna run build $(LERNA_BUILD_FLAGS)
-## Build monorepo with lerna
+## Build docker images for all services
 mono/build/ci:
 	@for service in $(SERVICES) ; do \
 		$(GREEN) ">>>> Building $${service} image";  \
