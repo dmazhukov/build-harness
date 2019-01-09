@@ -13,10 +13,16 @@ mono/deps:
 	@lerna bootstrap $(LERNA_BOOTSTRAP_FLAGS)
 ## Bootstrap monorepo with lerna
 mono/init:
-	@npm install -g lerna rimraf
+	@npm install -g lerna
 ## Build monorepo with lerna
 mono/build:
 	@lerna run build $(LERNA_BUILD_FLAGS)
+## Build monorepo with lerna
+mono/build/ci:
+	@for service in $(SERVICES) ; do \
+		$(GREEN) ">>>> Building $${service} image";  \
+		$(MAKE) docker/build SERVICE=$$service; \
+	done
 ## Test monorepo with lerna
 mono/test:
 	@lerna run test $(LERNA_TEST_FLAGS)
