@@ -14,7 +14,7 @@ endif
 	@export BUILD_ARGS=`for arg in $$ARGS; do \
 		printf -- '--build-arg %s='%s' ' "$$arg" "$${!arg}"; \
 	done`; \
-	echo "Building $(DOCKER_IMAGE_NAME) from $(DOCKER_FILE) with [$$DOCKER_BUILD_FLAGS] build flags and $(BUILD_ARGS) build args..."; \
+	@echo "Building $(DOCKER_IMAGE_NAME) from $(DOCKER_FILE) with [$$DOCKER_BUILD_FLAGS] build flags and $(BUILD_ARGS) build args..."
 	@$(DOCKER) build $$DOCKER_BUILD_FLAGS $(BUILD_ARGS) -t $(DOCKER_IMAGE_NAME) -f $(DOCKER_FILE) $(DOCKER_BUILD_PATH)
 
 
